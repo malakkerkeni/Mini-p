@@ -16,11 +16,13 @@ conn = pyodbc.connect(
 )
 
 
-# Récupérer les variables d'environnement
-server = os.getenv('SQL_SERVER')
-database = os.getenv('SQL_DATABASE')
-username = os.getenv('SQL_USERNAME')
-password = os.getenv('SQL_PASSWORD')
+import os
+
+db_host = os.getenv('DB_HOST')
+odbc_driver = os.getenv('ODBC_DRIVER')
+db_user = os.getenv('DB_USER')
+db_password = os.getenv('DB_PASSWORD')
+
 
 
 
