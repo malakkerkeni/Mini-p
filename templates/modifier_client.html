@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %}Modifier un Client{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Modifier un client</h1>
+<form method="POST" action="/modifier/{{ client[0] }}" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" name="nom" id="nom" class="form-control" value="{{ client[1] }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input type="text" name="prenom" id="prenom" class="form-control" value="{{ client[2] }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Âge</label>
+        <input type="number" name="age" id="age" class="form-control" value="{{ client[3] }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="region" class="form-label">Région</label>
+        <select name="region" id="region" class="form-select">
+            {% for region in regions %}
+            <option value="{{ region[0] }}" {% if region[0] == client[4] %}selected{% endif %}>
+                {{ region[1] }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Ajouter un Client{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Ajouter un nouveau client</h1>
+<form method="POST" action="/ajout_client" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" name="nom" id="nom" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input type="text" name="prenom" id="prenom" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Âge</label>
+        <input type="number" name="age" id="age" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="region" class="form-label">Région</label>
+        <select name="region" id="region" class="form-select">
+            {% for region in regions %}
+            <option value="{{ region[0] }}">{{ region[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
+{% endblock %}
