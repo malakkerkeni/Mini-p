@@ -88,6 +88,10 @@ def supprimer_client(id_client):
     return redirect('/liste_client')
 
 
+@app.route('/home')
+def home():
+    return 'Page d\'accueil'
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
